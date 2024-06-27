@@ -4,7 +4,7 @@ const Hero = () => {
   const [currentCategory, setCurrentCategory] = useState('all')
   return (
     <>
-      <div className='bg-black text-white text-center py-32 px-8 mb-8 flex justify-center items-center'>
+      <div className='bg-primaryColor text-white text-center py-32 px-8 mb-8 flex justify-center items-center'>
         <div className='flex flex-col items-center gap-3'>
           <h1 className='text-5xl lg:text-7xl leading-snug mb-5 font-bold'>Welcome To Lorem Dolor</h1>
           <p className='text-center md:text-lg lg:w-3/5'>Lorem ipsum dolor sit amet, consectetur adipiscing clit. Lorem ipsum dolor sit amet, consectetur adipiscing clit.  ipsum dolor sit amet,  adipiscing clit.</p>

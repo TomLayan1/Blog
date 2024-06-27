@@ -7,7 +7,7 @@ const Header = () => {
   const [current, setCurrent] = useState('home');
 
   return (
-    <header className='bg-black w-full fixed top-0 left-0'>
+    <header className='bg-primaryColor w-full fixed top-0 left-0'>
       <div className='flex items-center justify-between px-6 py-4 md:px-24 md:py-4 rounded-full relative'>
         <div className='text-orange-600 text-2xl font-bold'><Link to={'/'}>Logo<span className='text-white'>DS</span></Link></div>
         
