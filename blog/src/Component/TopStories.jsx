@@ -8,7 +8,7 @@ const TopStories = () => {
   const { topStories } = useContext(BlogContext)
   return (
     <div className='w-full lg:w-[35%] px-4 lg:px-0'>
-      <h2 className='text-xl text-center font-bold mb-8 text-grayLight'>Recent Post</h2>
+      <h2 className='text-xl font-bold mb-5 text-grayLight'>Recent Post</h2>
       <div className='grid md:grid-cols-2 lg:grid-cols-1 gap-4 text-grayLight'>
         {topStories.map(topStories => (
           <div>
