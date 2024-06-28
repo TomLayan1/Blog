@@ -7,6 +7,7 @@ import Display from './Pages/Display'
 import About from './Pages/About'
 import Footer from './Component/Footer'
 import TopStories from './Pages/TopStories'
+import Blog from './Pages/Blog'
 
 const App = () => {
   return (
@@ -16,8 +17,9 @@ const App = () => {
           <Header />
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='/story/:storyId' element={<Display />} />
+            <Route path='/story/:id' element={<Display />} />
             <Route path='/about' element={<About />} />
+            <Route path='/blog' element={<Blog />} />
             <Route path='/topstories' element={<TopStories />} />
           </Routes>
           <Footer />

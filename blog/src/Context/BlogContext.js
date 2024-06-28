@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useCallback, useEffect, useState } from "react";
 import { blogsiteTopStories } from "../Data/stories";
 import api from '../Axios/BaseUrl'
 
@@ -9,7 +9,6 @@ const BlogContextProvider = (props) => {
 
   // State for all posts
   const [posts, setPosts] = useState([])
-  console.log(posts);
 
   // State for top stories
   const [topStories, setTopStories] = useState(blogsiteTopStories);
@@ -17,35 +16,48 @@ const BlogContextProvider = (props) => {
   // State for error message from api
   const [error, setError] = useState(null)
 
+  // State for category
+  const [selectedCategory, setSelectedCategory] = useState(null)
+
   // State for specific story
-  const [storyDetails, setStoryDetails] = useState(null);
+  const [fullStory, setFullStory] = useState(null);
+  console.log(fullStory)
+
 
 
   useEffect(() => {
     const fetchData = async () => {
+
       try{
         await api.get('/posts').then(response => {
           setPosts(response.data)
         })
       } catch (err) {
-        console.log(err.message)
+        setError(err.message)
       }
     }
 
     fetchData()
   }, [])
 
-  const getStoryDetail = (id) => {
-    // const storyId = blogSiteStories.find(story => story.id === id);
-    const storyId = id
-    setStoryDetails();
-  }
+  const id = 1;
+  const fetchFullStory = useCallback(async (id) => {
+    try {
+      await api.get(`posts/${id}`).then(response => {
+        setFullStory(response.data)
+      })
+    } catch (err) {
+      console.log(err.message)
+    }
+  }, [])
+
+
   
   const contextValue = {
     posts,
     topStories,
-    getStoryDetail,
-    storyDetails
+    fetchFullStory,
+    fullStory
   }
 
   return (
