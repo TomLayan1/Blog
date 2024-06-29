@@ -7,8 +7,11 @@ import Pagination from './Pagination';
 
 const AllStories = ({ count = 86, mainPage }) => {
   // From Context
-  const { getPaginatedPosts, blogPosts } = useContext(BlogContext);
+  const { getPaginatedPosts, blogPosts, error } = useContext(BlogContext);
   const posts = mainPage ? blogPosts : getPaginatedPosts();
+
+  // If an error occurs
+  if (error) return <div className='min-h-[81.2vh] text-2xl'>Error: {error.message}</div>;
 
   return (
     <div className='w-full px-4'>
