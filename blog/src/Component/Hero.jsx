@@ -1,7 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { BlogContext } from '../Context/BlogContext'
 
 const Hero = () => {
-  const [currentCategory, setCurrentCategory] = useState('all')
+  const [currentCategory, setCurrentCategory] = useState('All')
+
+  const { setSelectedCategory, setCurrentPage } = useContext(BlogContext);
+
+  const handleCategoryClick = (category) => {
+    setSelectedCategory(category);
+    // Reset page to 1 on category change
+    setCurrentPage(1);
+    setCurrentCategory(category);
+  };
+
   return (
     <>
       <div className='bg-primaryColor text-white text-center py-32 px-8 mb-8 flex justify-center items-center'>
@@ -10,13 +21,13 @@ const Hero = () => {
           <p className='text-center md:text-lg lg:w-3/5'>Lorem ipsum dolor sit amet, consectetur adipiscing clit. Lorem ipsum dolor sit amet, consectetur adipiscing clit.  ipsum dolor sit amet,  adipiscing clit.</p>
         </div>
       </div>
+      
       <div className='w-[80%] lg:w-[40%] flex justify-between m-auto mb-8 lg:ml-56'>
-        <p onClick={()=>setCurrentCategory('all')} className={`text-[15px] cursor-pointer ${currentCategory === 'all' ? 'text-orange-600' : ''}`}>All</p>
-        <p onClick={()=>setCurrentCategory('startups')} className={`text-[15px] cursor-pointer ${currentCategory === 'startups' ? 'text-orange-600' : ''}`}>Startups</p>
-        <p onClick={()=>setCurrentCategory('security')} className={`text-[15px] cursor-pointer ${currentCategory === 'security' ? 'text-orange-600' : ''}`}>Security</p>
-        <p onClick={()=>setCurrentCategory('ai')} className={`text-[15px] cursor-pointer ${currentCategory === 'ai' ? 'text-orange-600' : ''}`}>AI</p>
-        <p onClick={()=>setCurrentCategory('apps')} className={`text-[15px] cursor-pointer ${currentCategory === 'apps' ? 'text-orange-600' : ''}`}>Apps</p>
-        <p onClick={()=>setCurrentCategory('tech')} className={`text-[15px] cursor-pointer ${currentCategory === 'tech' ? 'text-orange-600' : ''}`}>Tech</p>
+        {['All', 'Startups', 'Security', 'AI', 'Apps', 'Tech'].map(category => (
+          <p key={category} onClick={() => handleCategoryClick(category)} className={`text-[15px] cursor-pointer ${currentCategory === category ? 'text-orange-600' : ''}`}>
+            {category}
+          </p>
+        ))}
       </div>
     </>
   )

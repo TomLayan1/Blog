@@ -11,7 +11,7 @@ const TopStories = () => {
       <h2 className='text-xl font-bold mb-5 text-grayLight'>Recent Post</h2>
       <div className='grid md:grid-cols-2 lg:grid-cols-1 gap-4 text-grayLight'>
         {topStories.map(topStories => (
-          <div>
+          <div className='cursor-pointer'>
             <p className='mb-2'>{topStories.content.title}</p>
             <p className='font-semibold mb-4 flex items-center gap-1'>Read more <FaArrowRight className='' size={12} style = {{ cursor: 'pointer', color: 'black' }}/></p>
             <hr/>

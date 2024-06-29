@@ -8,7 +8,7 @@ const Blog = () => {
           <h1 className='text-5xl lg:text-7xl leading-snug mb-5 font-bold'>Blog</h1>
       </div>
       <div className='lg:px-40'>
-        <AllStories mainPage />
+        <AllStories mainPage/>
       </div>
     </div>
   )

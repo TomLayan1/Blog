@@ -8,7 +8,7 @@ export const BlogContext = createContext(null);
 const BlogContextProvider = (props) => {
 
   // State for all posts
-  const [posts, setPosts] = useState([])
+  const [blogPosts, setBlogPosts] = useState([])
 
   // State for top stories
   const [topStories, setTopStories] = useState(blogsiteTopStories);
@@ -19,10 +19,11 @@ const BlogContextProvider = (props) => {
   // State for category
   const [selectedCategory, setSelectedCategory] = useState(null)
 
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+
   // State for specific story
   const [fullStory, setFullStory] = useState(null);
-  console.log(fullStory)
-
 
 
   useEffect(() => {
@@ -30,7 +31,7 @@ const BlogContextProvider = (props) => {
 
       try{
         await api.get('/posts').then(response => {
-          setPosts(response.data)
+          setBlogPosts(response.data)
         })
       } catch (err) {
         setError(err.message)
@@ -40,24 +41,46 @@ const BlogContextProvider = (props) => {
     fetchData()
   }, [])
 
-  const id = 1;
+  // Function to filter blogPosts by category
+  const getPostsByCategory = () => {
+    if (selectedCategory === 'All' || !selectedCategory) {
+      return blogPosts;
+    }
+    return blogPosts.filter(blogPost => blogPost.category === selectedCategory);
+  };
+
+  // Function to get paginated posts
+  const postsPerPage = 12;
+
+  const getPaginatedPosts = () => {
+    const filteredPosts = getPostsByCategory();
+    const startIndex = (currentPage - 1) * postsPerPage;
+    return filteredPosts.slice(startIndex, startIndex + postsPerPage);
+  };
+
   const fetchFullStory = useCallback(async (id) => {
     try {
       await api.get(`posts/${id}`).then(response => {
         setFullStory(response.data)
       })
     } catch (err) {
-      console.log(err.message)
+      setError(err.message)
     }
   }, [])
 
 
-  
   const contextValue = {
-    posts,
+    blogPosts,
+    error,
     topStories,
     fetchFullStory,
-    fullStory
+    fullStory,
+    selectedCategory,
+    setSelectedCategory,
+    getPostsByCategory,
+    getPaginatedPosts,
+    currentPage,
+    setCurrentPage,
   }
 
   return (

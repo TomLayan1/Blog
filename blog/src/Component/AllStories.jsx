@@ -3,13 +3,12 @@ import { BlogContext } from '../Context/BlogContext'
 import { Link } from 'react-router-dom'
 import { AiOutlineCalendar, AiOutlineClockCircle } from "react-icons/ai";
 import { FaUser } from 'react-icons/fa';
+import Pagination from './Pagination';
 
-const AllStories = ({ simplified, count=86, mainPage }) => {
-
-  // From context
-  const { posts } = useContext(BlogContext)
-
-  const pageNum = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+const AllStories = ({ count = 86, mainPage }) => {
+  // From Context
+  const { getPaginatedPosts, blogPosts } = useContext(BlogContext);
+  const posts = mainPage ? blogPosts : getPaginatedPosts();
 
   return (
     <div className='w-full px-4'>
@@ -38,11 +37,7 @@ const AllStories = ({ simplified, count=86, mainPage }) => {
           </Link></div>
         ))}
       </div>
-        {simplified && <div className='flex flex-wrap items-center justify-center gap-4'>
-          {pageNum.map(num => (
-            <p key={num} className='py-2 px-3 shadow-customShadow cursor-pointer text-primaryColor border rounded border-orange-600'>{num}</p>
-          ))}
-        </div>}
+      {!mainPage && <Pagination />}
     </div>
   )
 }
