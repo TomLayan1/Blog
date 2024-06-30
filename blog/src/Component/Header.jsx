@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <header className='bg-primaryColor w-full fixed top-0 left-0'>
       <div className='flex items-center justify-between px-6 py-4 md:px-16 md:py-4 rounded-full relative'>
-        <div className='text-orange-600 text-2xl font-bold'><Link to={'/'}>Logo<span className='text-white'>DS</span></Link></div>
+        <div className='text-orange-600 text-2xl font-bold'><Link to={'/'}>Tech<span className='text-white'>TD</span></Link></div>
         
         {/* For md & lg screen */}
         <nav className='hidden md:block '>
