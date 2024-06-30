@@ -75,10 +75,10 @@ const About = () => {
       </div>
       <div className='px-8 md:px-20 lg:px-40'>
         <div className=' mx-auto mb-8 lg:mb-14'>
-          <p>Welcome to <span className='text-orange-600'>Tech Trend Digest</span>, your go-to source for the latest insights in technology, startups, AI, and more. Our mission is to keep you informed and inspired about the ever-evolving world of technology.</p>
+          <p>Welcome to <span className='text-orange-600'>Tech Trends Digest</span>, your go-to source for the latest insights in technology, startups, AI, and more. Our mission is to keep you informed and inspired about the ever-evolving world of technology.</p>
         </div>
 
-        <div className='mb-[100px] h-[350px] flex items-center justify-between'>
+        <div className='mb-[200px] h-[350px] flex items-center justify-between'>
           <div className='w-[45%]'>
             <h2 className='text-orange-600 text-lg font-bold mb-3 md:text-2xl'>Who We Are</h2>
             <p>We are a passionate team of tech enthusiasts, writers, and industry professionals dedicated to exploring the frontiers of innovation. Our diverse backgrounds in startups, artificial intelligence, and various tech sectors enable us to bring you unique perspectives on the topics that matter.</p>
@@ -89,7 +89,7 @@ const About = () => {
         <div className='mb-[200px] h-[350px] flex flex-row-reverse items-center justify-between'>
           <div className='w-[45%]'>
             <h2 className='text-orange-600 text-lg font-bold mb-3 md:text-2xl'>What We Do</h2>
-            <p>At <span className='text-orange-600'>Tech Trend Digest</span>, we dive deep into the world of technology, covering everything from the latest trends in artificial intelligence to the startup ecosystem's vibrant landscape. Whether you’re a tech professional, an entrepreneur, or simply a curious reader, our content is designed to engage and educate.</p>
+            <p>At <span className='text-orange-600'>Tech Trends Digest</span>, we dive deep into the world of technology, covering everything from the latest trends in artificial intelligence to the startup ecosystem's vibrant landscape. Whether you’re a tech professional, an entrepreneur, or simply a curious reader, our content is designed to engage and educate.</p>
           </div>
           <div className='w-[50%] -z-10' ref={whatWeDo}></div>
         </div>
@@ -105,7 +105,7 @@ const About = () => {
         <div className='mb-10 h-[350px] flex flex-row-reverse items-center justify-between'>
           <div className='w-[45%]'>
             <h2 className='text-orange-600 text-lg font-bold mb-3 md:text-2xl'>Join Us</h2>
-            <p>Stay connected with <span className='text-orange-600'>Tech Trend Digest</span> to explore cutting-edge topics, discover emerging trends, and gain valuable insights. Whether you’re looking for in-depth articles, interviews with industry leaders, or the latest tech news, we’ve got you covered.
+            <p>Stay connected with <span className='text-orange-600'>Tech Trends Digest</span> to explore cutting-edge topics, discover emerging trends, and gain valuable insights. Whether you’re looking for in-depth articles, interviews with industry leaders, or the latest tech news, we’ve got you covered.
             <br/>
             <br/>
             Thank you for being a part of our journey. Together, let’s explore the future of technology!</p>
@@ -123,7 +123,7 @@ const About = () => {
           {team.map(member => (
             <div className='flex flex-col items-center p-5'>
                 <div className='max-h-[180px] max-w-[180px] border-4 p-1 rounded-full mb-5'>
-                  <img className='rounded-full' src={member.image}/>
+                  <img className='rounded-full' src={member.image} alt={member.name}/>
                 </div>
               <div className='flex flex-col items-center'>
                 <p className='font-semibold text-lg mb-2'>{member.name}</p>
