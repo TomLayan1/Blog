@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { team } from '../Data/Team'
 import lottie from 'lottie-web'
+import { motion } from 'framer-motion';
 
 const About = () => {
 
@@ -79,11 +80,19 @@ const About = () => {
         </div>
 
         <div className='mb-[200px] h-[350px] flex items-center justify-between'>
-          <div className='w-[45%]'>
+          <motion.div
+            initial={{ opacity: 0, translateX: -100 }}
+            animate={{ opacity: 1, translateX: 0 }}
+            transition={{ duration: 1.5 }}
+            className='w-[45%]'>
             <h2 className='text-orange-600 text-lg font-bold mb-3 md:text-2xl'>Who We Are</h2>
             <p>We are a passionate team of tech enthusiasts, writers, and industry professionals dedicated to exploring the frontiers of innovation. Our diverse backgrounds in startups, artificial intelligence, and various tech sectors enable us to bring you unique perspectives on the topics that matter.</p>
-          </div>
-          <div className='w-[50%] -z-10' ref={whoWeAre}></div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, translateX: 100 }}
+            animate={{ opacity: 1, translateX: 0 }}
+            transition={{ duration: 1.5 }}
+            className='w-[50%] -z-10' ref={whoWeAre}></motion.div>
         </div>
 
         <div className='mb-[200px] h-[350px] flex flex-row-reverse items-center justify-between'>

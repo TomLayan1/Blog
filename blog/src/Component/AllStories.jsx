@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { AiOutlineCalendar, AiOutlineClockCircle } from "react-icons/ai";
 import { FaUser } from 'react-icons/fa';
 import Pagination from './Pagination';
+import { animate, motion } from 'framer-motion';
 
 const AllStories = ({ count = 86, mainPage }) => {
   // From Context
@@ -14,10 +15,14 @@ const AllStories = ({ count = 86, mainPage }) => {
   if (error) return <div className='min-h-[81.2vh] text-2xl'>Error: {error.message}</div>;
 
   return (
-    <div className='w-full px-4'>
-      <div className={`grid gap-6 md:grid-cols-2 ${mainPage ? 'lg:grid-cols-4' : 'lg:grid-cols-3'} text-grayLight mb-10`}>
-        {posts.slice(0, count).map(stories => (
-          <div key={stories.id} className='p-2 shadow-customShadow cursor-pointer'><Link to={`/story/${stories.id}`}>
+    <div className='w-full px-4 -z-10'>
+      <div className={`grid gap-4 md:grid-cols-2 ${mainPage ? 'lg:grid-cols-4' : 'lg:grid-cols-3'} text-grayLight mb-10`}>
+        {posts.slice(0, count).map((stories, i) => (
+          <motion.div
+            initial={{ opacity: 0, translateX: i % 2 === 0 ? 50 : -50, translateY: -50 }}
+            animate={{ opacity: 1, translateX: 0, translateY: 0 }}
+            transition={{ duration: 0.3, delay: i * 0.5 }}
+            key={stories.id} className='p-2 shadow-customShadow cursor-pointer'><Link to={`/story/${stories.id}`}>
             <img src={stories.image} alt='Post' className='mb-3'/>
             <div className='flex flex-col text-sm'>
               <p className='uppercase mb-3 text-orange-600 font-semibold'>{stories.category}</p>
@@ -37,7 +42,7 @@ const AllStories = ({ count = 86, mainPage }) => {
                 </div>
               </div>
             </div>
-          </Link></div>
+          </Link></motion.div>
         ))}
       </div>
       {!mainPage && <Pagination />}

@@ -39,7 +39,7 @@ const Footer = () => {
         <div className='flex flex-col gap-1 w-full md:w-[350px]'>
           <h5 className='font-semibold mb-2'>Subscribe for updates</h5>
           <form className='flex gap-2 mb-4 w-[300px]'>
-            <input type='email' name='email' className='rounded px-2 py-1 w-[257px]'/>
+            <input type='email' name='email' placeholder='Email' className='rounded px-2 py-1 w-[257px] text-gray-700' />
             <button className='border border-white rounded w-[80px] text-xs font-semibold py-1 px-2 hover:bg-white hover:text-primaryColor duration-300 ease-in cursor-pointer'>Subscribe</button>
           </form>
           <div className='w-full'>
