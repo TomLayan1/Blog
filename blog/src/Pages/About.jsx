@@ -96,30 +96,54 @@ const About = () => {
         </div>
 
         <div className='mb-[200px] h-[350px] flex flex-row-reverse items-center justify-between'>
-          <div className='w-[45%]'>
+          <motion.div
+            initial={{ opacity: 0, translateX: 100 }}
+            animate={{ opacity: 1, translateX: 0 }}
+            transition={{ duration: 1.5 }}
+            className='w-[45%]'>
             <h2 className='text-orange-600 text-lg font-bold mb-3 md:text-2xl'>What We Do</h2>
             <p>At <span className='text-orange-600'>Tech Trends Digest</span>, we dive deep into the world of technology, covering everything from the latest trends in artificial intelligence to the startup ecosystem's vibrant landscape. Whether you’re a tech professional, an entrepreneur, or simply a curious reader, our content is designed to engage and educate.</p>
-          </div>
-          <div className='w-[50%] -z-10' ref={whatWeDo}></div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, translateX: -100 }}
+            animate={{ opacity: 1, translateX: 0 }}
+            transition={{ duration: 1.5 }}
+            className='w-[50%] -z-10' ref={whatWeDo}></motion.div>
         </div>
 
         <div className='mb-[250px] h-[350px] flex items-center justify-between'>
-          <div className='w-[45%]'>
+          <motion.div 
+            initial={{ opacity: 0, translateX: -100 }}
+            animate={{ opacity: 1, translateX: 0 }}
+            transition={{ duration: 1.5 }}
+            className='w-[45%]'>
             <h2 className='text-orange-600 text-lg font-bold mb-3 md:text-2xl'>Our Vision</h2>
             <p>We believe in the transformative power of technology and its potential to shape a better future. Our vision is to create a community where knowledge is shared, ideas are sparked, and readers are empowered to stay ahead in the fast-paced tech world.</p>
-          </div>
-          <div className='w-[50%] -z-10' ref={ourVision}></div>
+          </motion.div>
+          <motion.div 
+            initial={{ opacity: 0, translateX: 100 }}
+            animate={{ opacity: 1, translateX: 0 }}
+            transition={{ duration: 1.5 }}
+            className='w-[50%] -z-10' ref={ourVision}></motion.div>
         </div>
 
         <div className='mb-10 h-[350px] flex flex-row-reverse items-center justify-between'>
-          <div className='w-[45%]'>
+          <motion.div
+            initial={{ opacity: 0, translateX: 100 }}
+            animate={{ opacity: 1, translateX: 0 }}
+            transition={{ duration: 1.5 }}
+            className='w-[45%]'>
             <h2 className='text-orange-600 text-lg font-bold mb-3 md:text-2xl'>Join Us</h2>
             <p>Stay connected with <span className='text-orange-600'>Tech Trends Digest</span> to explore cutting-edge topics, discover emerging trends, and gain valuable insights. Whether you’re looking for in-depth articles, interviews with industry leaders, or the latest tech news, we’ve got you covered.
             <br/>
             <br/>
             Thank you for being a part of our journey. Together, let’s explore the future of technology!</p>
-          </div>
-          <div className='w-[50%] -z-10' ref={joinUs}></div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, translateX: -100 }}
+            animate={{ opacity: 1, translateX: 0 }}
+            transition={{ duration: 1.5 }}
+            className='w-[50%] -z-10' ref={joinUs}></motion.div>
         </div>
       </div>
 
@@ -128,7 +152,11 @@ const About = () => {
       <div>
         <h2 className='text-center text-4xl font-bold mb-12'>Meet <span className='bg-orange-600 p-2 text-white'>Us</span></h2>
         
-        <div className='px-3 lg:px-40 grid md:grid-cols-2 lg:grid-cols-4 gap-3'>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5 }}
+          className='px-3 lg:px-40 grid md:grid-cols-2 lg:grid-cols-4 gap-3'>
           {team.map(member => (
             <div className='flex flex-col items-center p-5'>
                 <div className='max-h-[180px] max-w-[180px] border-4 p-1 rounded-full mb-5'>
@@ -140,7 +168,7 @@ const About = () => {
               </div>
             </div>
           ))}
-        </div>
+        </motion.div>
 
       </div>
     </>
