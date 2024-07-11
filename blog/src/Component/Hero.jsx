@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { BlogContext } from '../Context/BlogContext'
+import { motion } from 'framer-motion'
 
 const Hero = () => {
   const [currentCategory, setCurrentCategory] = useState('All')
@@ -17,10 +18,18 @@ const Hero = () => {
     <>
       <div className='bg-primaryColor text-white text-center py-32 px-8 mb-8 flex justify-center items-center'>
         <div className='flex flex-col items-center gap-3'>
-          <h1 className='text-5xl lg:text-7xl leading-snug mb-5 font-bold'>Welcome To Tech Trends Digest</h1>
-          <p className='text-center md:text-lg lg:w-3/5'>
+          <motion.h1
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 3 }}
+            className='text-5xl lg:text-7xl leading-snug mb-5 font-bold'>Welcome To Tech Trends Digest</motion.h1>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 5 }}
+            className='text-center md:text-lg lg:w-3/5'>
             Your source for the latest insights in technology, startups, and AI. Join us as we explore the innovations shaping our future!
-          </p>
+          </motion.p>
         </div>
       </div>
       
