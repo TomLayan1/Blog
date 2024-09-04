@@ -9,6 +9,7 @@ const Hero = () => {
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
+    
     // Reset page to 1 on category change
     setCurrentPage(1);
     setCurrentCategory(category);

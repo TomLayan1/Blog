@@ -3,6 +3,7 @@ import { useParams } from 'react-router'
 import { BlogContext } from '../Context/BlogContext';
 import { AiOutlineCalendar, AiOutlineClockCircle } from "react-icons/ai";
 import { FaUser } from 'react-icons/fa';
+import Comment from '../Component/Comment';
 
 
 const Display = () => {
@@ -10,21 +11,22 @@ const Display = () => {
   const {id} = useParams();
 
   // From context
-  const { fetchFullStory, fullStory } = useContext(BlogContext);
+  const { getFullStory, fullStory } = useContext(BlogContext);
 
   // If a story is clicked, assign its id to getStoryDetail
   useEffect(() => {
     if(id) {
-      fetchFullStory(id);
+      getFullStory(id);
     }
-  }, [fetchFullStory, id])
+  }, [getFullStory, id])
   
   return (
     <>
       {fullStory && (
+      <>
         <div>
-          <div className='bg-primaryColor text-white text-center py-24 pb-10 px-8 lg:px-14 mb-8 flex justify-center items-center'>
-              <h1 className='text-3xl lg:text-5xl leading-relaxed mb-5 font-bold'>{fullStory.title}</h1>
+          <div className='min-h-full bg-primaryColor text-white text-center py-24 pb-10 px-8 lg:px-14 mb-8 flex justify-center items-center'>
+              <h1 className='text-3xl lg:text-4xl leading-10 mb-5 font-bold'>{fullStory.title}</h1>
           </div>
 
           <div className='px-6 md:px-20 lg:px-40  mx-auto mb-5'>
@@ -49,11 +51,26 @@ const Display = () => {
             </div>
           </div>
 
-          <div className='px-6 md:px-20 lg:px-40  mx-auto mb-8 lg:mb-14 leading-relaxed'>
+          <div className='px-6 md:px-20 lg:px-40  mx-auto mb-8 lg:mb-14 text-[15px] leading-8'>
             <p>{fullStory.content}</p>
           </div>
         </div>
+        
+        <div className='px-6 py-8 md:px-20 lg:px-40 mx-auto bg-grayLight'>
+          <h2 className='text-xl text-gray-600 font-semibold mb-3'>Comments</h2>
+          <div className='mb-16'>
+          {fullStory.comments.map(comment => (
+            <>
+              <h5 className='text-xl font-bold text-primaryColo'>{comment.person}</h5>
+              <p className='text-grays'>{comment.post}</p>
+            </>
+          ))}
+          </div>
+        <Comment />
+        </div>
+        </>
       )}
+
     </>
   )
 }

@@ -1,52 +1,37 @@
-import { createContext, useCallback, useEffect, useState } from "react";
-import { blogsiteTopStories } from "../Data/stories";
-import api from '../Axios/BaseUrl'
+import { createContext, useEffect, useState } from "react";
+import posts from '../Data/stories'
+// import api from '../Axios/BaseUrl'
 
 
-export const BlogContext = createContext(null);
+export const BlogContext = createContext();
 
 const BlogContextProvider = (props) => {
 
-  // State for all posts
-  const [blogPosts, setBlogPosts] = useState([])
-
-  // State for top stories
-  const [topStories, setTopStories] = useState(blogsiteTopStories);
-
-  // State for error message from api
-  const [error, setError] = useState(null)
-
   // State for category
-  const [selectedCategory, setSelectedCategory] = useState(null)
+  const [selectedCategory, setSelectedCategory] = useState('All')
 
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
-
+  
   // State for specific story
-  const [fullStory, setFullStory] = useState(null);
-
-
+  const [fullStory, setFullStory] = useState(() => {
+    const savedStory = localStorage.getItem('fullStory');
+    return savedStory ? JSON.parse(savedStory) : null
+  });
+  console.log(fullStory)
+  
   useEffect(() => {
-    const fetchData = async () => {
-
-      try{
-        await api.get('/posts').then(response => {
-          setBlogPosts(response.data)
-        })
-      } catch (err) {
-        setError(err.message)
-      }
+    if(fullStory){
+      localStorage.setItem('fullStory', JSON.stringify(fullStory))
     }
-
-    fetchData()
-  }, [])
+  }, [fullStory])
 
   // Function to filter blogPosts by category
   const getPostsByCategory = () => {
-    if (selectedCategory === 'All' || !selectedCategory) {
-      return blogPosts;
+    if (selectedCategory === 'All') {
+      return posts;
     }
-    return blogPosts.filter(blogPost => blogPost.category === selectedCategory);
+    return posts.filter(post => post.category === selectedCategory);
   };
 
   // Function to get paginated posts
@@ -58,23 +43,18 @@ const BlogContextProvider = (props) => {
     return filteredPosts.slice(startIndex, startIndex + postsPerPage);
   };
 
-  const fetchFullStory = useCallback(async (id) => {
-    try {
-      await api.get(`posts/${id}`).then(response => {
-        setFullStory(response.data)
-      })
-    } catch (err) {
-      setError(err.message)
+  const getFullStory = (id) => {
+    const selectedPost = posts.find(story => story.id === id)
+    console.log(id)
+     if (selectedPost) {
+      setFullStory(selectedPost);
     }
-  }, [])
-
+  }
 
   const contextValue = {
-    blogPosts,
-    error,
-    topStories,
-    fetchFullStory,
     fullStory,
+    setFullStory,
+    getFullStory,
     selectedCategory,
     setSelectedCategory,
     getPostsByCategory,

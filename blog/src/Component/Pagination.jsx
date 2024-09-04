@@ -14,7 +14,7 @@ const Pagination = () => {
   return (
     <div className="flex flex-wrap md:flex-nowrap gap-5 justify-center mx-auto">
       {Array.from({ length: totalPages }, (_, index) => (
-        <button key={index + 1} onClick={() => handlePageClick(index + 1)} className={`py-2 px-3 shadow-customShadow cursor-pointer text-primaryColor border rounded border-orange-600 ${currentPage === index + 1 ? 'bg-orange-600 text-white' : ''}`}>
+        <button key={index + 1} onClick={() => handlePageClick(index + 1)} className={`px-2 text-[15px] shadow-customShadow cursor-pointer text-primaryColor border rounded ${currentPage === index + 1 ? 'bg-orange-600 text-white' : ''}`}>
           {index + 1}
         </button>
       ))}

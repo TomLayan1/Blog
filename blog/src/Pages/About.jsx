@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from 'react'
-import { team } from '../Data/Team'
+// import { team } from '../Data/Team'
 import lottie from 'lottie-web'
 import { motion } from 'framer-motion';
+import Header from '../Component/Header';
 
 const About = () => {
 
@@ -71,6 +72,7 @@ const About = () => {
   }, [])
   return (
     <>
+      <Header />
       <div className='bg-primaryColor text-white text-center py-32 px-8 mb-24 flex justify-center items-center'>
           <motion.h1
             initial={{ opacity: 0 }}
@@ -79,11 +81,11 @@ const About = () => {
             className='text-5xl lg:text-7xl leading-snug mb-5 font-bold'>About Us</motion.h1>
       </div>
       <div className='px-8 md:px-20 lg:px-40'>
-        <div className='mx-auto mb-8 lg:mb-14'>
+        <div className='mx-auto mb-2 lg:mb-14'>
           <p>Welcome to <span className='text-orange-600'>Tech Trends Digest</span>, your go-to source for the latest insights in technology, startups, AI, and more. Our mission is to keep you informed and inspired about the ever-evolving world of technology.</p>
         </div>
 
-        <div className='h-[100vh] flex items-center justify-between overflow-x-hidden'>
+        <div className='h-[90vh] flex items-center justify-between overflow-x-hidden'>
           <motion.div
             initial={{ opacity: 0, translateX: -100 }}
             whileInView={{ opacity: 1, translateX: 0 }}
@@ -96,10 +98,10 @@ const About = () => {
             initial={{ opacity: 0, translateX: 100 }}
             whileInView={{ opacity: 1, translateX: 0 }}
             transition={{ duration: 1.5 }}
-            className='w-[50%] -z-10 hidden lg:block' ref={whoWeAre}></motion.div>
+            className='w-[50%] -z-10 hidden md:block' ref={whoWeAre}></motion.div>
         </div>
 
-        <div className='h-[100vh] flex flex-row-reverse items-center justify-between overflow-x-hidden'>
+        <div className='h-[90vh] flex flex-row-reverse items-center justify-between overflow-x-hidden'>
           <motion.div
             initial={{ opacity: 0, translateX: 100 }}
             whileInView={{ opacity: 1, translateX: 0 }}
@@ -115,7 +117,7 @@ const About = () => {
             className='w-[50%] -z-10 hidden lg:block' ref={whatWeDo}></motion.div>
         </div>
 
-        <div className='h-[100vh] flex items-center justify-between overflow-x-hidden'>
+        <div className='h-[90vh] flex items-center justify-between overflow-x-hidden'>
           <motion.div 
             initial={{ opacity: 0, translateX: -100 }}
             whileInView={{ opacity: 1, translateX: 0 }}
@@ -131,7 +133,7 @@ const About = () => {
             className='w-[50%] -z-10 hidden lg:block' ref={ourVision}></motion.div>
         </div>
 
-        <div className='mb-10 h-[100vh] flex flex-row-reverse items-center justify-between overflow-x-hidden'>
+        <div className='mb-10 h-[90vh] flex flex-row-reverse items-center justify-between overflow-x-hidden'>
           <motion.div
             initial={{ opacity: 0, translateX: 100 }}
             whileInView={{ opacity: 1, translateX: 0 }}
@@ -149,31 +151,6 @@ const About = () => {
             transition={{ duration: 1.5 }}
             className='w-[50%] -z-10 hidden lg:block' ref={joinUs}></motion.div>
         </div>
-      </div>
-
-      <hr className='mb-8 lg:mb-14'/>
-
-      <div>
-        <h2 className='text-center text-4xl font-bold mb-12'>Meet <span className='bg-orange-600 p-2 text-white'>Us</span></h2>
-        
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          className='px-3 lg:px-40 grid md:grid-cols-2 lg:grid-cols-4 gap-3'>
-          {team.map(member => (
-            <div className='flex flex-col items-center p-5'>
-              <div className='max-h-[180px] max-w-[180px] border-4 p-1 rounded-full mb-5'>
-                <img className='rounded-full' src={member.image} alt={member.name}/>
-              </div>
-              <div className='flex flex-col items-center'>
-                <p className='font-semibold text-lg mb-2'>{member.name}</p>
-                <p className='text-grayLight'>{member.position}</p>
-              </div>
-            </div>
-          ))}
-        </motion.div>
-
       </div>
     </>
   )
