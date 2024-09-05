@@ -13,16 +13,7 @@ const BlogContextProvider = (props) => {
   const [currentPage, setCurrentPage] = useState(1);
   
   // State for specific story
-  const [fullStory, setFullStory] = useState(() => {
-    const savedStory = localStorage.getItem('fullStory');
-    return savedStory ? JSON.parse(savedStory) : null
-  });
-  
-  useEffect(() => {
-    if(fullStory){
-      localStorage.setItem('fullStory', JSON.stringify(fullStory))
-    }
-  }, [fullStory])
+  const [fullStory, setFullStory] = useState(null);
 
   // Function to filter blogPosts by category
   const getPostsByCategory = () => {

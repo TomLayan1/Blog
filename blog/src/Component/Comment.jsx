@@ -11,14 +11,6 @@ const Comment = () => {
   })
   console.log(comment)
 
-  // Retrieve fullStory from localStorage on component mount
-  useEffect(() => {
-    const storedFullStory = localStorage.getItem('fullStory');
-    if (storedFullStory) {
-      setFullStory(JSON.parse(storedFullStory));
-    }
-  }, [setFullStory]);
-
   // To handle input fields
   const handleComment = (e) => {
     e.preventDefault();
