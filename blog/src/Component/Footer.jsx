@@ -22,22 +22,22 @@ const Footer = () => {
           <div className='mb-7 w-full md:w-[20%]'>
             <h5 className='font-semibold mb-2 text-orange-600'>Socials</h5>
             <div  className='flex flex-col gap-3 text-sm'>
-              <a href='https://facebook.com' target='_blank'><div className='flex items-center gap-2 cursor-pointer'>
+              <a href='https://facebook.com' target='_blank' rel="noreferrer"><div className='flex items-center gap-2 cursor-pointer'>
                 <FaFacebook size={16}/>
                 <p>Facebook</p>
               </div></a>
-              <a href='https://x.com' target='_blank'><div className='flex items-center gap-2 cursor-pointer'>
+              <a href='https://x.com' target='_blank' rel="noreferrer"><div className='flex items-center gap-2 cursor-pointer'>
                 <FaXTwitter size={16}/>
                 <p>X</p>
               </div></a>
-              <a href='https://medium.com' target='_blank'><div className='flex items-center gap-2 cursor-pointer'>
+              <a href='https://medium.com' target='_blank' rel="noreferrer"><div className='flex items-center gap-2 cursor-pointer'>
                 <FaMedium size={16}/>
                 <p>Medium</p>
               </div></a>
             </div>
           </div>
 
-          <div className='flex flex-col gap-1 w-full mb-7 md:w-[60%]'>
+          <div className='flex flex-col gap-1 w-full mb-14 md:w-[60%]'>
             <h5 className='font-semibold mb-2 text-orange-600'>Subscribe for updates</h5>
             <form className='flex gap-2 mb-4 w-[300px]'>
               <input type='email' name='email' placeholder='Email' className='rounded px-2 py-1 w-[257px] text-gray-700' />

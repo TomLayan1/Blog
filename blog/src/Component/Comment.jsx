@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { BlogContext } from '../Context/BlogContext'
 
 const Comment = () => {
@@ -10,6 +10,14 @@ const Comment = () => {
     post: ''
   })
   console.log(comment)
+
+  // Retrieve fullStory from localStorage on component mount
+  useEffect(() => {
+    const storedFullStory = localStorage.getItem('fullStory');
+    if (storedFullStory) {
+      setFullStory(JSON.parse(storedFullStory));
+    }
+  }, [setFullStory]);
 
   // To handle input fields
   const handleComment = (e) => {

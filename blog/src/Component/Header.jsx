@@ -61,14 +61,13 @@ const Header = () => {
   return (
     <header className='bg-primaryColor w-full fixed top-0 left-0'>
       <div className='flex items-center justify-between px-6 py-4 md:px-16 rounded-full relative'>
-        <div
-          className='text-orange-600 text-2xl font-bold'><Link to={'/'}>Tech<span className='text-white'>TD</span></Link></div>
+        <div className='text-orange-600 text-2xl font-bold'><Link to={'/'}>Tech<span className='text-white'>TD</span></Link></div>
         
         {/* For lg screen */}
         <nav className='hidden lg:block'>
           <ul className='text-base text-white flex gap-9'>
             {navigation.map(nav => (
-              <li variants={itemVariants} whileTap={{ scale: 0.75 }} className={`${nav.name === currentMenu ? 'text-orange-600' : ''}`} onClick={()=>handleNav(nav.name)}><Link to={nav.path}>{nav.name}</Link></li>
+              <li variants={itemVariants} key={nav.name} className={`${nav.name === currentMenu ? 'text-orange-600' : ''}`} onClick={()=>handleNav(nav.name)}><Link to={nav.path}>{nav.name}</Link></li>
             ))}
           </ul>
         </nav>
@@ -77,7 +76,7 @@ const Header = () => {
         <motion.nav animate={ showNav ? 'open' : 'closed' } className='lg:hidden fixed top-14 left-0 right-0 bottom-0 overflow-y-hidden z-40'>
           <motion.ul variants={variants} className={`bg-primaryColor h-[100%] text-3xl text-white flex flex-col gap-12 items-center pt-12 rounded-b-2xl ${showNav ? '' : 'transform -translate-y-full'} duration-500 ease-in-out`}>
             {navigation.map(nav => (
-              <motion.li variants={itemVariants} whileTap={{ scale: 0.75 }} className={`${nav.name === currentMenu ? 'text-orange-600' : ''} font-semibold hover:scale-110`} onClick={()=>handleNav(nav.name)}><Link to={nav.path}>{nav.name}</Link></motion.li>
+              <motion.li variants={itemVariants} key={nav.name} className={`${nav.name === currentMenu ? 'text-orange-600' : ''} font-semibold hover:scale-110`} onClick={()=>handleNav(nav.name)}><Link to={nav.path}>{nav.name}</Link></motion.li>
             ))}
           </motion.ul>
         </motion.nav>

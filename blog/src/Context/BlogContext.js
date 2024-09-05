@@ -1,6 +1,5 @@
 import { createContext, useEffect, useState } from "react";
 import posts from '../Data/stories'
-// import api from '../Axios/BaseUrl'
 
 
 export const BlogContext = createContext();
@@ -18,7 +17,6 @@ const BlogContextProvider = (props) => {
     const savedStory = localStorage.getItem('fullStory');
     return savedStory ? JSON.parse(savedStory) : null
   });
-  console.log(fullStory)
   
   useEffect(() => {
     if(fullStory){

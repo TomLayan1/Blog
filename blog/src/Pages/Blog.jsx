@@ -1,6 +1,6 @@
 import React from 'react'
-import Test from '../Component/AllStories'
 import Header from '../Component/Header'
+import AllStories from '../Component/AllStories'
 
 const Blog = () => {
   return (
@@ -13,7 +13,7 @@ const Blog = () => {
             </h1>
         </div>
         <div className='lg:px-40'>
-          <Test mainPage />
+          <AllStories mainPage />
         </div>
       </div>
     </>

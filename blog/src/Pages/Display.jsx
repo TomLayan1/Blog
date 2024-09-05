@@ -56,21 +56,20 @@ const Display = () => {
           </div>
         </div>
         
-        <div className='px-6 py-8 md:px-20 lg:px-40 mx-auto bg-grayLight'>
+        <div className='px-6 py-8 md:px-20 lg:px-40 mx-auto bg-grayLightTwo'>
           <h2 className='text-xl text-gray-600 font-semibold mb-3'>Comments</h2>
           <div className='mb-16'>
-          {fullStory.comments.map(comment => (
-            <>
-              <h5 className='text-xl font-bold text-primaryColo'>{comment.person}</h5>
+          {fullStory.comments.map((comment, index) => (
+            <div key={index}>
+              <strong className='text-xl font-bold text-primaryColo'>{comment.person}</strong>
               <p className='text-grays'>{comment.post}</p>
-            </>
+            </div>
           ))}
           </div>
         <Comment />
         </div>
         </>
       )}
-
     </>
   )
 }
