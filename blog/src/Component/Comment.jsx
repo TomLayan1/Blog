@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useState } from 'react'
 import { BlogContext } from '../Context/BlogContext'
 
 const Comment = () => {
@@ -9,7 +9,6 @@ const Comment = () => {
     email: '',
     post: ''
   })
-  console.log(comment)
 
   // To handle input fields
   const handleComment = (e) => {

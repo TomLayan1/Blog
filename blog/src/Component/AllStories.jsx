@@ -13,9 +13,9 @@ const AllStories = ({ count = 86, mainPage }) => {
   const blogPosts = mainPage ? posts : getPaginatedPosts();
 
   return (
-    <div className='w-full min-h-[100vh] text-xl px-4'>
+    <div className='w-full min-h-[100vh] text-xl'>
       <div
-        className={`grid gap-7 md:grid-cols-2 ${mainPage ? 'lg:grid-cols-4' : 'lg:grid-cols-3'} text-grayLight mb-10`}>
+        className={`grid gap-7 lg:gap-5 md:grid-cols-2 ${mainPage ? 'lg:grid-cols-4' : 'lg:grid-cols-3'} text-grayLight mb-10`}>
         {blogPosts.slice(0, count).map((stories, i) => (
           <div
             onClick={() => getFullStory(stories.id)}
@@ -28,13 +28,13 @@ const AllStories = ({ count = 86, mainPage }) => {
                 <FaUser className='text-primaryColor' />
                 <p className=''>{stories.author}</p>
               </div>
-              <div className='flex items-center gap-4'>
-                <div className='flex items-center gap-1 text-sm'>
+              <div className='flex items-center gap-2'>
+                <div className='flex w-full items-center gap-1 text-sm'>
                   <AiOutlineCalendar className='text-primaryColor' />
                   <p>{stories.published_date}</p>
                 </div>
-                <div className='flex items-center gap-1 text-sm'>
-                  <AiOutlineClockCircle className='text-primaryColor' />
+                <div className='flex w-full items-center gap-1 text-sm'>
+                  <AiOutlineClockCircle className='text-primaryColor font-bold' />
                   <p>{stories.reading_time}</p>
                 </div>
               </div>

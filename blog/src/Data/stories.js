@@ -42,7 +42,11 @@ const posts = [
         "authorPic": "author1.jpg",
         "published_date": "2023-10-01",
         "reading_time": "5 minutes",
-        "content": "Pow.bio intends to bring down the costs associated with biomanufacturing by reimagining of fermentation facility operations.",
+        "content": `The biomanufacturing industry has long held promise for revolutionizing production in sectors ranging from pharmaceuticals to agriculture. However, according to Pow.bio, a biotech startup, this promise remains unfulfilled due to the limitations of traditional biomanufacturing techniques. Pow.bio argues that conventional batch fermentation—the current industry standard— is inefficient, costly, and unsuitable for scaling up the bioproduction of valuable products. The company believes that its innovative continuous fermentation technology is the key to addressing these challenges.
+            Biomanufacturing typically relies on batch fermentation, a process where microbes are grown in large tanks to produce a desired product, such as proteins, chemicals, or biofuels. Once the batch reaches a certain stage, the process is stopped, and the product is extracted. This method, while reliable, has significant drawbacks. It’s time-consuming, wasteful, and expensive, primarily due to the downtime between batches and the high costs associated with restarting the process. Additionally, scaling up from lab experiments to industrial-level production often introduces further inefficiencies, making it difficult to meet commercial demands.
+            Pow.bio is proposing a radically different approach. Its continuous fermentation technology allows microbial production to operate without the need for halting and restarting. Instead of working in batches, the process runs continuously, with inputs and outputs being managed dynamically. This not only reduces downtime but also enhances the consistency and quality of the products being manufactured. Continuous fermentation also enables more efficient use of resources, such as raw materials and energy, leading to significant cost savings.
+            The potential impact of this innovation is substantial. Continuous fermentation could drastically reduce production times, improve scalability, and lower costs, making biomanufacturing more accessible for startups and larger companies alike. Moreover, it could enhance the sustainability of biomanufacturing by minimizing waste and reducing the environmental footprint of industrial processes.
+            Pow.bio is confident that their technology will usher in a new era for biomanufacturing. By overcoming the limitations of traditional methods, they aim to make bioproduction more efficient and scalable, unlocking new possibilities for industries dependent on biotech innovations. As demand for sustainable and cost-effective production solutions grows, Pow.bio’s continuous fermentation could become a cornerstone in the future of manufacturing.`,
         "comments": [],
         "tas": ["Startups", "Writing"]
     },
@@ -134,7 +138,7 @@ const posts = [
         "authorPic": "author1.jpg",
         "published_date": "2023-10-01",
         "reading_time": "5 minutes",
-        "content": `Lorem ipsum dolor sit amet, consectetur adipiscing elit. This masterclass offers invaluable insights for startups aiming to define their product-market fit in the early stages. Led by Flourish Ventures, the session dives into the critical steps needed to align a product with market demands.
+        "content": `This masterclass offers invaluable insights for startups aiming to define their product-market fit in the early stages. Led by Flourish Ventures, the session dives into the critical steps needed to align a product with market demands.
                 Through practical examples and expert advice, participants gain a deeper understanding of how to validate their ideas and refine their offerings to meet customer needs. The focus is on creating a strong foundation for growth, ensuring that startups can scale effectively while maintaining a clear market fit.    
                 As the startup landscape continues to evolve, finding the right product-market fit early on is more important than ever. This masterclass provides the tools and knowledge needed to navigate this crucial phase successfully.`,
         "comments": [],

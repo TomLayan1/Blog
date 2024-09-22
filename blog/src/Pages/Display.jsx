@@ -21,19 +21,21 @@ const Display = () => {
   }, [getFullStory, id])
   
   return (
-    <>
+    <section className='w-full min-h-[100vh]'>
       {fullStory && (
       <>
         <div>
-          <div className='min-h-full bg-primaryColor text-white text-center py-24 pb-10 px-8 lg:px-14 mb-8 flex justify-center items-center'>
+          <div className='min-h-full bg-primaryColor text-white text-center py-24 pb-10 mb-8 flex justify-center items-center'>
+            <div className='container'>
               <h1 className='text-3xl lg:text-4xl leading-10 mb-5 font-bold'>{fullStory.title}</h1>
+            </div>
           </div>
 
-          <div className='px-6 md:px-20 lg:px-40  mx-auto mb-5'>
-            <img src={fullStory.image} alt={fullStory.title} className='m-auto w-full mb-2 rounded-xl' />
+          <div className='container lg:w-[80%] mx-auto mb-5'>
+            <img src={fullStory.image} alt={fullStory.title} className='m-auto w-full rounded-xl' />
           </div>
           
-          <div className='px-6 md:px-20 lg:px-40  mx-auto mb-8 lg:mb-10 leading-relaxed'>
+          <div className='container lg:w-[80%] mx-auto mb-8 lg:mb-10 leading-relaxed'>
             <div className='flex items-center gap-2 mb-3'>
               <div cl className='flex items-center gap-1'>
                 <FaUser className='text-primaryColor' />
@@ -51,12 +53,12 @@ const Display = () => {
             </div>
           </div>
 
-          <div className='px-6 md:px-20 lg:px-40  mx-auto mb-8 lg:mb-14 text-[15px] leading-8'>
+          <div className='container lg:w-[80%] mx-auto mb-8 lg:mb-14 text-[15px] leading-8'>
             <p>{fullStory.content}</p>
           </div>
         </div>
         
-        <div className='px-6 py-8 md:px-20 lg:px-40 mx-auto bg-grayLightTwo'>
+        <div className='container lg:w-[80%] mx-auto bg-grayLightTwo'>
           <h2 className='text-xl text-gray-600 font-semibold mb-3'>Comments</h2>
           <div className='mb-16'>
           {fullStory.comments.map((comment, index) => (
@@ -66,11 +68,11 @@ const Display = () => {
             </div>
           ))}
           </div>
-        <Comment />
+          <Comment />
         </div>
         </>
       )}
-    </>
+    </section>
   )
 }
 

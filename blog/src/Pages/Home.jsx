@@ -8,7 +8,7 @@ const Home = () => {
     <div className='pb-12'>
       <Header />
       <Hero />
-      <div className='lg:px-28 text-sm'>
+      <div className='container w-full mx-auto text-sm'>
         <hr className='mb-8'/>
         <Stories />
       </div>

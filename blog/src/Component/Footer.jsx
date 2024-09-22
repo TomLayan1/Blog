@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
-    <div className='bg-primaryColor w-full px-6 md:px-16 pt-6 pb-1'>
-      <div className='lg:flex'>
+    <div className='bg-primaryColor w-full pt-6 pb-1'>
+      <div className='lg:flex container w-[90% mx-auto mb-16'>
         <div className='text-orange-600 text-2xl font-bold mb-5 w-[20%]'>Tech<span className='text-white'>TD</span></div>
         <div className='text-white flex flex-wrap w-[100%]'>
           <div className='mb-7 w-full md:w-[20%]'>

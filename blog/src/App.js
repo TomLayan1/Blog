@@ -5,7 +5,7 @@ import Home from './Pages/Home'
 import Display from './Pages/Display'
 import About from './Pages/About'
 import Footer from './Component/Footer'
-import Blog from './Pages/Blog'
+import AllPosts from './Pages/AllPosts'
 
 const App = () => {
   return (
@@ -14,7 +14,7 @@ const App = () => {
         <BrowserRouter>
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='/all-stories' element={<Blog />} />
+            <Route path='/all-stories' element={<AllPosts />} />
             <Route path='/about' element={<About />} />
             <Route path='/story/:id' element={<Display />} />
           </Routes>

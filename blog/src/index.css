@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-.fbju{
-  color: #032125;
+body::-webkit-scrollbar {
+  width: 5px;
+}
+body::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #ea580c;
 }

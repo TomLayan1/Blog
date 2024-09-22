@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 const TopStories = ({ count=100 }) => {
   const { getFullStory } = useContext(BlogContext)
   return (
-    <div className='hidden lg:block w-full lg:w-[35%] px-4 lg:px-0'>
+    <div className='hidden lg:block w-full lg:w-[33%]'>
       <h2 className='text-xl font-bold mb-5 text-grayLight'>Recent Post</h2>
       <div className='grid md:grid-cols-2 lg:grid-cols-1 gap-4 text-grayLight'>
         {posts.slice(0, count).map(topStories => (
